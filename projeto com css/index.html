@@ -3,10 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Layout Responsivo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Este é o conteúdo da página principal do projeto.</p>
+
+    <div class="container-externo">
+        <div class="grid-layout">
+            <header class="item header">
+                <span>Cabeçalho</span>
+            </header>
+            
+            <nav class="item menu">
+                <span>Menu</span>
+            </nav>
+            
+            <aside class="item sidebar-left">
+                <span>Coluna Esquerda</span>
+            </aside>
+            
+            <main class="item content">
+                <span>Conteúdo</span>
+            </main>
+            
+            <aside class="item sidebar-right">
+                <span>Coluna Direita</span>
+            </aside>
+            
+            <footer class="item footer">
+                <span>Rodapé</span>
+            </footer>
+        </div>
+    </div>
+
 </body>
 </html>
