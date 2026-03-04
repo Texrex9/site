@@ -1,18 +1,72 @@
 <!DOCTYPE html>
+<!-- 
+    ARQUIVO: click.html
+    DESCRIÇÃO: Página HTML interativa que demonstra manipulação de estilos com JavaScript
+    OBJETIVO: Permitir ao usuário trocar e restaurar cores de elementos HTML (divs)
+    
+    FUNCIONALIDADE:
+    - Dois botões para executar ações
+    - Três divs que trocam de cor ao clicar no botão "Troca de cor"
+    - Botão para restaurar as cores originais
+    
+    TECNOLOGIAS:
+    - HTML: Estrutura dos elementos
+    - CSS: Estilos base (click.css)
+    - JavaScript: Manipulação de cores (click.js)
+-->
 <html lang="pt-br">
 <head>
+    <!-- META TAGS: Configurações da página -->
+    
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentuação -->
     <meta charset="UTF-8">
+    
+    <!-- Configura a página para ser responsiva em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título exibido na aba do navegador -->
     <title>Aula de Click javaScript</title>
+    
+    <!-- IMPORTAÇÕES: Arquivos externos -->
+    
+    <!-- Importa o arquivo CSS que define os estilos iniciais dos elementos -->
+    <!-- click.css contém classes como .divTrocaCor com estilos base -->
     <link rel="stylesheet" href="click.css">
+    
+    <!-- Importa o arquivo JavaScript que contém as funções de manipulação -->
+    <!-- click.js contém trocaCor() e restaurarCor() -->
     <script src="click.js"></script>
 </head>
 <body>
+    <!-- CABEçALHO/TÍTULO DA PÁGINA -->
+    <!-- Título principal que descreve o objetivo da página -->
     <h1>Trocando de cor as divs</h1>
+    
+    <!-- BOTÕES DE CONTROLE -->
+    <!-- Os botões dispararão as funções JavaScript ao serem clicados -->
+    
+    <!-- Botão 1: Troca as cores das divs -->
+    <!-- onclick="trocaCor()" chama a função trocaCor() quando clicado -->
+    <!-- id="botaoTrocaCor" permite identificar esse botão para estilização ou manipulação futura -->
     <button id="botaoTrocaCor" onclick="trocaCor() ">Troca de cor</button>
+    
+    <!-- Botão 2: Restaura as cores originais -->
+    <!-- onclick="restaurarCor()" chama a função restaurarCor() quando clicado -->
+    <!-- id="botaoRestaurarCor" permite identificar esse botão para estilização ou manipulação futura -->
     <button id="botaoRestaurarCor" onclick="restaurarCor()">Restaurar cor padrão</button>
+    
+    <!-- DIVS QUE MUDAM DE COR -->
+    <!-- Esses elementos HTML serão manipulados pelas funções JavaScript -->
+    <!-- class="divTrocaCor" aplica estilos CSS base definidos em click.css -->
+    <!-- id serve para identificar cada div uniquamente no JavaScript -->
+    
+    <!-- Primeira div: receberá cor vermelha (red) quando trocaCor() for chamada -->
     <div id="div-1" class="divTrocaCor">Div 1</div>
+    
+    <!-- Segunda div: receberá cor verde claro (lightgreen) quando trocaCor() for chamada -->
     <div id="div-2" class="divTrocaCor">Div 2</div>
+    
+    <!-- Terceira div: receberá cor azul claro (lightblue) quando trocaCor() for chamada -->
     <div id="div-3" class="divTrocaCor">Div 3</div>
     
 </body>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- 
+    ARQUIVO: jogoDaVelha.html
+    DESCRIÇÃO: Interface do jogo da velha (3x3)
+    OBJETIVO: Criar um tabuleiro interativo onde 2 jogadores podem jogar
+    FUNCIONALIDADE: 9 células clicáveis + botão de reiniciar + verificação de vencedor
+-->
+<html lang="pt-br">
+<head>
+    <!-- META TAGS: Configurações da página -->
+    
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentuação -->
+    <meta charset="UTF-8">
+    
+    <!-- Configura a página para ser responsiva em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página exibido na aba do navegador -->
+    <title>Jogo da Velha</title>
+    
+    <!-- ESTILOS CSS: Folha de estilos interno (style) -->
+    <style>
+        /**
+         * ESTILOS DO BODY
+         * - display: flex: Usa flexbox para layout
+         * - flex-direction: column: Alinha elementos verticalmente
+         * - justify-content: center: Centraliza verticalmente
+         * - align-items: center: Centraliza horizontalmente
+         * - height: 100vh: Ocupa 100% da altura da viewport (tela)
+         */
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;  /* Altura máxima da janela */
+        }
+        
+        /**
+         * ESTILOS DO TABULEIRO (.tabuleiro)
+         * - display: grid: Usa CSS Grid para layout em grade
+         * - grid-template-columns: repeat(3, 100px): Cria 3 colunas de 100px cada
+         * - gap: 10px: Espaço de 10px entre os elementos da grade
+         */
+        .tabuleiro {
+            display: grid;              /* Ativa o layout de grade */
+            grid-template-columns: repeat(3, 100px);  /* 3 colunas de 100px */
+            gap: 10px;                  /* Espaçamento entre células */
+        }
+        
+        /**
+         * ESTILOS DAS CÉLULAS (.celula)
+         * - display: flex: Usa flexbox para centralizar conteúdo
+         * - background-color: #e9dddd: Cor de fundo (cinza clarc)
+         * - width: 100%: Largura total do espaço disponível
+         * - height: 100px: Altura de 100px
+         * - justify-content: center: Centraliza o conteúdo horizontalmente
+         * - align-items: center: Centraliza o conteúdo verticalmente
+         * - font-size: 46px: Tamanho grande para X e O
+         * - cursor: pointer: Muda o cursor para "mão" ao passar sobre
+         */
+        .celula {
+            display: flex;              /* Ativa flexbox */
+            background-color: #e9dddd; /* Cor de fundo cinza claro */
+            width: 100%;               /* Largura total */
+            height: 100px;             /* Altura de 100 pixels */
+            justify-content: center;   /* Centraliza horizontalmente */
+            align-items: center;       /* Centraliza verticalmente */
+            font-size: 46px;           /* Tamanho grande para X e O */
+            cursor: pointer;           /* Cursor muda para mão */
+        }
+        
+        /**
+         * ESTILOS DO BOTÃO DE REINICIAR (#botaoReiniciar)
+         * - margin-top: 20px: Espaço acima do botão
+         * - padding: 15px: Espaço interno do botão
+         */
+        #botaoReiniciar{
+            margin-top: 20px;   /* Espaço acima */
+            padding: 15px;      /* Espaço interno */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TÍTULO PRINCIPAL DA PÁGINA -->
+    <!-- Exibe "Jogo da Velha" como título principal -->
+    <h1>Jogo da Velha</h1>
+    
+    <!-- TABULEIRO DO JOGO -->
+    <!-- div com classe 'tabuleiro' cria o layout em grade 3x3 -->
+    <!-- id="tabuleiro-jogo" permite identificar o tabuleiro se necessário -->
+    <div id="tabuleiro-jogo" class="tabuleiro">
+        <!-- 
+            9 BOTÕES PARA AS CÉLULAS
+            Cada botão representa uma célula do tabuleiro
+            Classe "celula" aplica os estilos CSS e permite que o JavaScript as selecione
+            Inicialmente vazios (com um espaço em branco)
+        -->
+        
+        <!-- Célula 0: Primeira linha, primeira coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 1: Primeira linha, segunda coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 2: Primeira linha, terceira coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 3: Segunda linha, primeira coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 4: Segunda linha, segunda coluna (centro) -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 5: Segunda linha, terceira coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 6: Terceira linha, primeira coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 7: Terceira linha, segunda coluna -->
+        <button class="celula"> </button>
+        
+        <!-- Célula 8: Terceira linha, terceira coluna -->
+        <button class="celula"> </button>
+    </div>
+    
+    <!-- BOTÃO REINICIAR -->
+    <!-- Botão para reiniciar o jogo -->
+    <!-- id="botaoReiniciar" permite que o JavaScript identifique e adie um event listener -->
+    <button id="botaoReiniciar">Reiniciar Jogo</button>
+
+    <!-- IMPORTAÇÃO DO ARQUIVO JAVASCRIPT -->
+    <!-- tag <script> carrega o arquivo jogoDaVelha.js que contém a lógica do jogo -->
+    <script src="jogoDaVelha.js"></script>   
+</body>
+</html>
