@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Formulário</title>
+    <style>
+        body{
+           justify-content: center;
+           align-items: center;
+           height: 100vh; 
+        }
+        label,button{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de contato</h1>
+    <form id="contactForm">
+        <label for="name">Nome: </label>
+        <input type="text" id="name" required maxlength="256"/>
+        <label for="tel">Telefone: </label>
+        <input type="tel" id="tel" required maxlength="20" />
+        <label for="email">Email: </label>
+        <input type="email" id="email" required maxlength="356" />
+        <label for="password">Senha: </label>
+        <input type="password" id="password" required maxlength="256" />
+        <label for="message">Mensagem: </label>
+        <textarea id="message" required maxlength="1000"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="validarForm.js"></script>
+</body>
+</html>
