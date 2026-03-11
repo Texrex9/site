@@ -1,67 +1,94 @@
-const celulas = document.querySelectorAll('.celula');
+// Pega todas as células do tabuleiro para podermos reagir aos cliques.
+const celulas = document.querySelectorAll(".celula");
 
+// Guarda de quem é a vez: true significa jogador X.
 let vezDoX = true;
-let jogoAtivo = true;  // Controla se o jogo esta em andamento
+// Informa se a partida ainda pode receber jogadas.
+let jogoAtivo = true;
 
-// Todas as combinacoes vencedoras possiveis
+// Lista todas as formas possíveis de vencer no jogo da velha.
 const combinacoesVencedoras = [
-    // Linhas
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    // Colunas
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    // Diagonais
-    [0, 4, 8],
-    [2, 4, 6]
+  // Três linhas horizontais.
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  // Três colunas verticais.
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  // Duas diagonais.
+  [0, 4, 8],
+  [2, 4, 6],
 ];
 
-document.getElementById("botaoReiniciar").addEventListener("click", iniciarJogo);
+// Quando clicar no botão de reiniciar, começa uma nova partida.
+document
+  .getElementById("botaoReiniciar")
+  .addEventListener("click", iniciarJogo);
 
+// Esta função limpa o tabuleiro e prepara um jogo novo.
 function iniciarJogo() {
-    vezDoX = true;  // Reseta para X comecar
-    jogoAtivo = true;  // Restaura o jogo como ativo
-    
-    celulas.forEach(celula => {
-        celula.textContent = "";
-        celula.removeEventListener('click', tratarClique);
-        celula.addEventListener('click', tratarClique, { once: true });
-    });
+  // Faz o X começar novamente.
+  vezDoX = true;
+  // Reativa o jogo para aceitar cliques.
+  jogoAtivo = true;
+
+  // Passa por cada célula para limpar e reativar o clique.
+  celulas.forEach((celula) => {
+    // Remove X ou O que estava escrito antes.
+    celula.textContent = "";
+    // Remove evento antigo para evitar eventos duplicados.
+    celula.removeEventListener("click", tratarClique);
+    // Adiciona o evento de clique de novo, permitindo apenas um clique por célula.
+    celula.addEventListener("click", tratarClique, { once: true });
+  });
 }
 
+// Esta função trata o clique em uma célula do tabuleiro.
 function tratarClique(evento) {
-    // So processa se o jogo esta ativo
-    if (!jogoAtivo) return;
-    
-    const simbolo = vezDoX ? "X" : "O";
-    evento.target.textContent = simbolo;
-    
-    // Verifica se o jogador atual venceu
-    if (verificarVitoria(simbolo)) {
-        alert("Parabens! O jogador " + simbolo + " VENCEU!");
-        jogoAtivo = false;  // Para o jogo
-        return;
-    }
-    
-    // Passa a vez para o outro jogador
-    vezDoX = !vezDoX;
+  // Se o jogo já terminou, não faz nada.
+  if (!jogoAtivo) return;
+
+  // Define o símbolo da jogada atual (X ou O).
+  const simbolo = vezDoX ? "X" : "O";
+  // Coloca o símbolo na célula clicada.
+  evento.target.textContent = simbolo;
+
+  // Verifica se essa jogada completou uma combinação vencedora.
+  if (verificarVitoria(simbolo)) {
+    // Mostra mensagem informando quem venceu.
+    alert("Parabéns! O jogador " + simbolo + " VENCEU!");
+    // Encerra o jogo para impedir novas jogadas.
+    jogoAtivo = false;
+    // Sai da função para não trocar a vez depois da vitória.
+    return;
+  }
+
+  // Se ninguém venceu ainda, passa a vez para o outro jogador.
+  vezDoX = !vezDoX;
 }
 
-// Funcao para verificar se ha vencedor
+// Esta função confere se o jogador atual venceu.
 function verificarVitoria(simbolo) {
-    for (let combinacao of combinacoesVencedoras) {
-        const [a, b, c] = combinacao;
-        
-        // Se as 3 celulas tem o mesmo simbolo, tem vencedor
-        if (celulas[a].textContent === simbolo &&
-            celulas[b].textContent === simbolo &&
-            celulas[c].textContent === simbolo) {
-            return true;
-        }
+  // Percorre todas as combinações de vitória.
+  for (let combinacao of combinacoesVencedoras) {
+    // Pega os três índices da combinação analisada.
+    const [a, b, c] = combinacao;
+
+    // Se as três posições tiverem o mesmo símbolo, houve vitória.
+    if (
+      celulas[a].textContent === simbolo &&
+      celulas[b].textContent === simbolo &&
+      celulas[c].textContent === simbolo
+    ) {
+      // Retorna verdadeiro para indicar vitória.
+      return true;
     }
-    return false;
+  }
+
+  // Se terminou o loop sem achar combinação, ainda não venceu.
+  return false;
 }
 
+// Chama a inicialização assim que o script carrega pela primeira vez.
 iniciarJogo();

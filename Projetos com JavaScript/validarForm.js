@@ -1,52 +1,91 @@
+// Esta função valida todos os campos do formulário antes de enviar.
 function validarForm() {
+  // Pega o valor digitado no campo de nome.
   const name = document.getElementById("name").value;
+  // Pega o valor digitado no campo de telefone.
   const tel = document.getElementById("tel").value;
+  // Pega o valor digitado no campo de e-mail.
   const email = document.getElementById("email").value;
+  // Pega o valor digitado no campo de senha.
   const password = document.getElementById("password").value;
+  // Pega o valor digitado no campo de mensagem.
   const message = document.getElementById("message").value;
 
-  if (name === "" || tel === "" || email === "" || password === "" || message === "") {
+  // Verifica se algum campo ficou vazio.
+  if (
+    name === "" ||
+    tel === "" ||
+    email === "" ||
+    password === "" ||
+    message === ""
+  ) {
+    // Mostra aviso para a pessoa preencher todos os campos.
     alert("Por favor, preencha todos os campos do formulário.");
-    return false; // Encerra a função se algum campo estiver vazio
+    // Retorna falso para impedir o envio.
+    return false;
   }
 
+  // Verifica se o nome tem tamanho mínimo e máximo permitido.
   if (name.length < 3 || name.length > 50) {
+    // Mostra aviso explicando o tamanho aceito para o nome.
     alert("O nome deve conter entre 3 e 50 caracteres.");
-    return false; // Encerra a função se o nome tiver menos de 3 ou mais de 50 caracteres
+    // Retorna falso para impedir o envio.
+    return false;
   }
 
-  // Validação do telefone com expressão regular para formatos brasileiros
+  // Cria um padrão para validar número de telefone brasileiro.
   const telPattern = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+  // Testa se o telefone digitado segue o padrão esperado.
   if (!telPattern.test(tel)) {
-    alert("Por favor, insira um número de telefone válido (ex: (11) 99999-9999).");
-    return false; // Encerra a função se o telefone for inválido
+    // Mostra exemplo para ajudar a preencher corretamente.
+    alert(
+      "Por favor, insira um número de telefone válido (ex: (11) 99999-9999).",
+    );
+    // Retorna falso para impedir o envio.
+    return false;
   }
 
+  // Verifica regras básicas do e-mail (tamanho e presença de @).
   if (email.length < 5 || email.length > 100 || !email.includes("@")) {
+    // Mostra aviso com as regras mínimas de e-mail.
     alert(
       "Por favor, insira um email válido (entre 5 e 100 caracteres e contendo '@').",
     );
-    return false; // Encerra a função se o email for inválido
+    // Retorna falso para impedir o envio.
+    return false;
   }
 
+  // Verifica se a senha possui tamanho aceitável.
   if (password.length < 6 || password.length > 20) {
+    // Mostra aviso com o tamanho permitido para senha.
     alert("A senha deve conter entre 6 e 20 caracteres.");
-    return false; // Encerra a função se a senha tiver menos de 6 ou mais de 20 caracteres
+    // Retorna falso para impedir o envio.
+    return false;
   }
 
+  // Cria um padrão para validar melhor a estrutura do e-mail.
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Testa se o e-mail combina com o padrão criado.
   if (!emailPattern.test(email)) {
+    // Mostra aviso de e-mail inválido.
     alert("Por favor, insira um email válido.");
-    return false; // Encerra a função se o email não corresponder ao padrão
+    // Retorna falso para impedir o envio.
+    return false;
   }
 
-  return true; // Retorna true se todas as validações passarem
+  // Se passou por todas as validações, retorna verdadeiro.
+  return true;
 }
 
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Impede o envio do formulário para validação
-   if (validarForm()){
-        alert("Formulário enviado com sucesso!");
-        // Limpa o formulário após envio
-    }           
-}); // Chama a função de validação
+// Escuta o evento de envio do formulário.
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
+    // Impede o envio automático para validar antes.
+    event.preventDefault();
+    // Chama a função de validação.
+    if (validarForm()) {
+      // Se estiver tudo correto, mostra mensagem de sucesso.
+      alert("Formulário enviado com sucesso!");
+    }
+  });

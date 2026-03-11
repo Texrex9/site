@@ -65,9 +65,9 @@ criaSecao("Loop for", dados);
 // --- exemplo: loop for...of iterando diretamente sobre valores ---
 dados = ""; // reinicia string novamente
 for (let carro of carros) {
-    if (carro === "Polo") {
-        break; // pula a iteração quando o carro for "Polo"
-    }
+  if (carro === "Polo") {
+    break; // para o loop completamente quando encontrar "Polo"
+  }
   dados += "<p>" + carro + "</p>";
 }
 criaSecao("Loop for of", dados);
@@ -87,17 +87,17 @@ console.log(carros2);
 dados = ""; // reinicia string para nova seção
 for (let carro of carros2) {
   let propriedades = ""; // reinicia propriedades para cada carro
-    for (let prop in carro) {
-      // Concatena as propriedades e seus valores em uma string formatada
-      propriedades += "<p>" + prop + ": " + carro[prop] + "</p>";
-    }
-    dados += "<p>" + propriedades + "</p>"; // adiciona as propriedades do carro à string final
-}       
+  for (let prop in carro) {
+    // Concatena as propriedades e seus valores em uma string formatada
+    propriedades += "<p>" + prop + ": " + carro[prop] + "</p>";
+  }
+  dados += "<p>" + propriedades + "</p>"; // adiciona as propriedades do carro à string final
+}
 criaSecao("Loop for in", dados);
 
 dados = ""; // reinicia string para nova seção
 
-carros.forEach(carro => {
-    dados += "<p>" + carro + "</p>"; // para cada carro, adiciona um parágrafo à string
-})
+carros.forEach((carro) => {
+  dados += "<p>" + carro + "</p>"; // para cada carro, adiciona um parágrafo à string
+});
 criaSecao("Loop forEach", dados); // cria seção com o resultado do forEach

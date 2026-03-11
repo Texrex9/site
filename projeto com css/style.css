@@ -7,7 +7,7 @@
 }
 
 body {
-    /* Fundo roxo escuro similar ao da imagem */
+    /* Fundo roxo escuro */
     background: radial-gradient(circle, #2e004f, #0f001a);
     height: 100vh;
     display: flex;
