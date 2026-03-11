@@ -1,0 +1,37 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Clientes
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+
+	body
+		.container(style='margin-top: 32px;')
+			.d-flex.justify-content-between.align-items-center(style='margin-bottom: 24px;')
+				h1 Clientes
+				a.btn.btn-primary(href='/clientes/create') Novo cliente
+
+			if message
+				.alert.alert-success(role='alert')= message
+
+			if error
+				.alert.alert-danger(role='alert')= error
+
+			if clients.length
+				table.table.table-striped
+					thead
+						tr
+							th ID
+							th Nome
+							th Email
+							th Acoes
+					tbody
+						each client in clients
+							tr
+								td= client.id
+								td= client.name
+								td= client.email
+								td
+									a.btn.btn-sm.btn-secondary(href='/clientes/' + client.id + '/edit') Editar
+			else
+				.alert.alert-info(role='alert') Nenhum cliente cadastrado.

@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Login
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+
+  body
+    .modal-dialog(style='margin-top: 60px;')
+      .modal-content
+        .modal-header
+          h4.modal-title Login
+        .modal-body
+          if error
+            .alert.alert-danger(role='alert')= error
+
+          form(role='form', method='POST', action='/')
+            .form-group
+              label(for='user') Usuario:
+              input#user.form-control(type='text', placeholder='usuario', name='user')
+            .form-group
+              label(for='password') Senha:
+              input#password.form-control(type='password', placeholder='senha', name='password')
+            button.btn.btn-primary(type='submit') Entrar
+              

@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Usuarios
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+
+  body
+    .container(style='margin-top: 32px;')
+      .d-flex.justify-content-between.align-items-center(style='margin-bottom: 24px;')
+        h1 Usuarios do Banco
+        a.btn.btn-secondary(href='/clientes') Ir para clientes
+
+      if error
+        .alert.alert-danger(role='alert')= error
+
+      if users.length
+        table.table.table-striped
+          thead
+            tr
+              th ID
+              th Usuario
+              th Senha
+              th Criado em
+          tbody
+            each item in users
+              tr
+                td= item.id
+                td= item.user
+                td= item.password
+                td= item.createdAt
+      else
+        .alert.alert-info(role='alert') Nenhum usuario encontrado.
