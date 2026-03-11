@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    
+    <meta charset="UTF-8">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="pizzaria.css">
+    
+    
+    <title>Pizzaria</title>
+</head>
+<body>
+    
+    <header>
+        
+        <h1>Bem-vindo à Pizzaria Delícia!</h1>
+    </header>
+    
+    
+    <section id="cardapio">
+        
+        
+        
+        <h2>Escolha uma pizza</h2>
+        <select name="pizza" id="sabor">
+            
+            <option value="">Selecione um sabor</option>
+            <option value="mussarela">Mussarela</option>
+            <option value="calabresa">Calabresa</option>
+            <option value="portuguesa">Portuguesa</option>
+            <option value="frango">Frango com Catupiry</option>
+        </select>
+
+        
+        
+        
+        <h2>Escolha o tamanho</h2>
+        <select name="tamanho" id="tamanho">
+            
+            <option value="">Selecione um tamanho</option>
+            <option value="pequena">Pequena (6 fatias)</option>
+            <option value="media">Média (8 fatias)</option>
+            <option value="grande">Grande (12 fatias)</option>
+        </select>
+
+        
+        
+        
+        <h2>Adicione ingredientes extras</h2>
+        <select name="ingredientes" id="ingredientes" multiple>
+            
+            <option value="bacon">Bacon</option>
+            <option value="cebola">Cebola</option>
+            <option value="pimentao">Pimentão</option>
+            <option value="azeitona">Azeitona</option>
+        </select>
+
+        
+        
+        <button onclick="fazerPedido()">Fazer Pedido</button>
+        
+        
+        <button onclick="mostrarPedido()">Mostrar Pedido</button>
+        
+        
+        <button onclick="novoPedido()">Novo Pedido</button>
+        
+        
+        
+        
+        <p id="pedido"></p>
+        
+        
+        
+        <script src="pizzaria.js"></script>
+    </section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html lang="pt-br">
+  <head>
+    
+
+    
+    <meta charset="UTF-8" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <title>Minha Lista de Tarefas</title>
+
+    
+    
+    <link rel="stylesheet" href="tarefasToDoList.css" />
+  </head>
+  <body>
+    
+    <div class="container">
+      
+      <h1>Minhas Tarefas</h1>
+
+      
+      <div class="entrada-tarefa">
+        <input
+          type="text"
+          id="campotarefa"
+          placeholder="Digite uma nova tarefa..."
+        />
+
+        
+        <button id="botaoAdicionar" onclick="adicionarTarefa()">
+          Adicionar
+        </button>
+      </div>
+
+      
+      <div class="acoes-lista">
+        
+        <button id="botaoFinalizar" onclick="finalizarLista()">
+          Finalizar Lista
+        </button>
+
+        
+        <button id="botaoReabrir" onclick="reabrirLista()" disabled>
+          Reabrir Lista
+        </button>
+      </div>
+
+      
+      <ul id="listaTarefas">
+        
+      </ul>
+
+      
+      <section id="areaTarefasParaFazer" class="area-tarefas-fazer">
+        <h2>Tarefas a serem feitas</h2>
+        <ul id="listaTarefasParaFazer"></ul>
+      </section>
+    </div>
+
+    
+    
+    <script src="tarefasToDoList.js"></script>
+  </body>
+</html>
